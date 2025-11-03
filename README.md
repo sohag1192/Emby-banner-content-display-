@@ -6,6 +6,8 @@
 
 **Emby Home Swiper UI** is a lightweight, responsive banner module for Emby Web (tested on version 4.9.1.80). It uses native Emby APIs to display auto-sliding content on the home page (`#!/home`) with minimal setup and no external dependencies.
 
+---
+
 🚀 Emby/Jellyfin Home Swiper UI
 A modern, highly customizable, and visually appealing home screen carousel/banner UI plugin designed for Emby and Jellyfin. This project replaces the default home screen library view with an interactive, dynamic Swiper carousel, perfect for showcasing your latest and most popular media.
 
