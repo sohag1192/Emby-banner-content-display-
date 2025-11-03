@@ -68,4 +68,7 @@
 
 ---
 
-Let me know if you'd like a bilingual README version (Bangla-English) or a modular breakdown of `home.js` for easier customization and future updates.
+
+## Anyone can update and contribute to this project's Emby Home Swiper UI
+
+
