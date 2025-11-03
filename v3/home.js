@@ -22,7 +22,7 @@ class HomeSwiper {
         .misty-home-banner {
             position: relative;
             width: 100%;
-            height: 65vw;
+            height: 56.25vw; /* 16:9 aspect ratio (1080/1920 = 0.5625) */
             max-height: 85vh;
             min-height: 500px;
             overflow: hidden;
@@ -59,6 +59,7 @@ class HomeSwiper {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             filter: brightness(0.35) saturate(1.2);
             transition: filter 1.5s ease;
         }
@@ -371,7 +372,7 @@ class HomeSwiper {
         /* Mobile Responsive */
         @media (max-width: 1024px) {
             .misty-home-banner {
-                height: 70vh;
+                height: 60vh;
                 min-height: 450px;
                 border-radius: 0 0 20px 20px;
             }
@@ -401,7 +402,7 @@ class HomeSwiper {
         
         @media (max-width: 768px) {
             .misty-home-banner {
-                height: 75vh;
+                height: 65vh;
                 min-height: 400px;
                 border-radius: 0;
                 margin-bottom: 30px;
@@ -455,6 +456,10 @@ class HomeSwiper {
         }
         
         @media (max-width: 480px) {
+            .misty-home-banner {
+                height: 70vh;
+            }
+            
             .misty-banner-title {
                 font-size: 2.2em;
             }
@@ -481,17 +486,6 @@ class HomeSwiper {
         @keyframes shimmer {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(400%); }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         `;
 
@@ -580,7 +574,7 @@ class HomeSwiper {
                  data-item-id="${item.Id}" 
                  role="tabpanel"
                  aria-hidden="${!isActive}">
-                <img class="misty-banner-image" src="${backdropUrl}" alt="${title}" loading="lazy">
+                <img class="misty-banner-image" src="${backdropUrl}" alt="${title}" loading="lazy" width="1920" height="1080">
                 <div class="misty-banner-gradient"></div>
                 <div class="misty-banner-content">
                     <div class="misty-banner-badge">
@@ -635,7 +629,7 @@ class HomeSwiper {
                 item.BackdropImageTags && item.BackdropImageTags.length > 0
             );
             
-            return itemsWithBackdrops.slice(0, 6); // Ensure max 6 items
+            return itemsWithBackdrops.slice(0, 6);
         } catch (error) {
             console.error('Failed to fetch banner items:', error);
             return [];
@@ -649,7 +643,7 @@ class HomeSwiper {
             if (options.type === 'Backdrop' && item.BackdropImageTags && item.BackdropImageTags.length > 0) {
                 return ApiClient.getImageUrl(item.Id, {
                     type: 'Backdrop',
-                    maxWidth: options.maxWidth || 1920,
+                    maxWidth: 1920,
                     tag: item.BackdropImageTags[0],
                     quality: 90
                 });
@@ -658,8 +652,8 @@ class HomeSwiper {
             console.error('Failed to get image URL:', error);
         }
         
-        // Fallback to a placeholder
-        return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9IiMxMTExMTEiLz48dGV4dCB4PSI5NjAiIHk9IjU0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNTU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5ObyBJbWFnZTwvdGV4dD48L3N2Zz4=';
+        // Fallback to a 1920x1080 placeholder
+        return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9IiMxMTExMTEiLz48dGV4dCB4PSI5NjAiIHk9IjU0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjNTU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xOTIweDEwODAgSW1hZ2U8L3RleHQ+PC9zdmc+';
     }
 
     static startPremiumCarousel() {
