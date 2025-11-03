@@ -69,6 +69,16 @@
 ---
 
 
-## Anyone can update and contribute to this project's Emby Home Swiper UI
+### Library Access Functions
+
+The uninitialized functions (`saveUser`, `renderMediaFolders`) suggest there is a separate settings component where users can manage their library visibility for the carousel. This code relies on global objects like **`ApiClient`** and **`require(["toast"])`**, common in the Emby/Jellyfin environment, to handle saving user preferences.
+
+-----
+
+## 🙋 Contributing
+
+If you find bugs or want to suggest improvements, please feel free to submit an issue or open a Pull Request on the original GitHub repository\!
+
+
 
 
