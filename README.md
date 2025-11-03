@@ -13,6 +13,71 @@ A modern, highly customizable, and visually appealing home screen carousel/banne
 
 **Original inspiration:** [Nolovenodie/emby-crx](https://github.com/Nolovenodie/emby-crx)
 
+
+**To manually update your `index.html` for integrating the Emby Home Swiper UI from the GitHub v1 folder and the Cangshui.net guide, follow these steps carefully.**
+
+---
+
+## ✅ **Manual Update Instructions for `index.html`**
+
+**1. Locate your Emby Web UI folder:**
+
+Depending on your setup:
+
+- **Standard install (e.g., Synology):**  
+  `/volume1/@appstore/EmbyServer/system/dashboard-ui/`
+
+- **Docker install (e.g., lovechen/embyserver):**  
+  `/system/dashboard-ui/`  
+  You can find it using:
+
+  ```bash
+  docker exec -it <container_id> find -name "index.html"
+  ```
+
+---
+
+**2. Download required files from GitHub:**
+
+From [Emby-Home-Swiper-UI v1](https://github.com/sohag1192/Emby-Home-Swiper-UI/tree/main/v1), download and place these files into your Emby Web UI folder:
+
+- `home.js` (main swiper logic)
+- `style.css` (optional, if styling is separate)
+- Any additional assets referenced in `home.js`
+
+---
+
+**3. Edit `index.html`:**
+
+Open `index.html` in a text editor and insert the following lines **before** the closing `</head>` tag:
+
+```html
+<!-- Emby Home Swiper UI -->
+<script src="home.js"></script>
+```
+
+
+Make sure these files are present in the same folder as `index.html`.
+
+---
+
+**4. Refresh Emby Web Interface:**
+
+After saving your changes, restart Emby or refresh the browser. The banner should now appear on the home page (`#!/home`).
+
+---
+
+**5. Optional Debugging:**
+
+- Open browser console (`F12`) and check for errors.
+- Run manually to test:
+
+  ```js
+  HomeSwiper.init()
+  ```
+
+---
+
 ---
 
 ## 🛠️ Installation Instructions
