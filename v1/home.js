@@ -1155,7 +1155,7 @@ div.mySwiper {
 	margin-top: clamp(0rem, -2.625rem + 7.5vw, 3rem);
 	width: 6em;
 	height: 1.8em;
-	background-color: #fff;
+	background-color: #00ff33;
 	border: none;
 	font-size: clamp(1rem, -0.275rem + 2.5vw, 1.6rem);
 	border-radius: 10px;
@@ -1453,7 +1453,7 @@ div.dialogContainer {
 					this.swiper2 = e.target.querySelector('.mySwiper-main').swiper;
 					this.swiper2?.enable();
 					this.swiper2?.slides[this.swiper2.activeIndex]?.childNodes[1].swiper?.autoplay.start();
-					this.swiper & setTimeout(() => Emby.Page.setTitle("每日推荐"), 1000);
+					this.swiper & setTimeout(() => Emby.Page.setTitle("SN FTP SERVER"), 1000);
 				}
 
 			} else {
