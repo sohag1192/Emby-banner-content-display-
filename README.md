@@ -102,7 +102,7 @@ After saving your changes, restart Emby or refresh the browser. The banner shoul
 | ✅ Feature              | 💡 Description                                                  |
 |------------------------|------------------------------------------------------------------|
 | Simple & Lightweight   | No external libraries required                                   |
-| Native API Support     | Uses `ApiClient` from Emby 4.9.1.80                              |
+| Native API Support     | Uses `ApiClient` from Emby 4.9.1.80-90                              |
 | Auto-sliding Banner    | Rotates every 8 seconds                                          |
 | Navigation Controls    | Includes previous/next buttons                                   |
 | Indicator Dots         | Clickable for direct navigation                                  |
@@ -149,11 +149,7 @@ The uninitialized functions (`saveUser`, `renderMediaFolders`) suggest there is 
 - ✅ Emby Web v4.9.1.90
 - ✅ Chrome, Firefox, Edge
 - ✅ Mobile and desktop views
-- 
-## 📸 Banner Previews
 
-![Screenshot 45](https://github.com/sohag1192/Emby-banner-content-display-/raw/main/v1/img/Screenshot_45.png)  
-![Screenshot 47](https://github.com/sohag1192/Emby-banner-content-display-/raw/main/v1/img/Screenshot_47.png)
 -----
 
 ## 🙋 Contributing
