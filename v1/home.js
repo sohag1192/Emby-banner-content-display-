@@ -1377,7 +1377,7 @@ div.dialogContainer {
 			localStorage.setItem(ApiClient.getCurrentUserId() + "-swiperLibraryAccess", JSON.stringify(user));
 			instance.getLibItems(true);
 			require(["toast"], function (toast) {
-				toast("已保存");
+				toast("Saved");
 			});
 
 		}
@@ -1639,7 +1639,7 @@ div.dialogContainer {
 			/* Randomly select all media libraries if the query returns nothing. Comment out the following statement if you don't need it. */
 					dataquery = await this.getItems({
 						ImageTypes: "Backdrop", EnableImageTypes: "Primary,Backdrop,Banner,Logo",
-						IncludeItemTypes: "Movie,Series", SortBy: "Random",
+						IncludeItemTypes: "Movie,Series", SortBy: "DateCreated",// or "PremiereDate" for release-based sorting
 						Recursive: true, ImageTypeLimit: 1, Limit: this.itemQuery.Limit, Fields: "Taglines,Overview",
 						EnableUserData: true, EnableTotalRecordCount: false
 					});
@@ -1761,15 +1761,25 @@ div.dialogContainer {
          <p>${typeof (detail.Overview) === "undefined" ? '' : detail.Overview}</p>
       </div>
       <div class="morebutton" data-focusabletype="nearest">
-         <button id="${detail.Id}" data-parentid="${datas.Id}" class="banner-item-play" tabindex="-1">PLAY</button><button tabindex="-1" onclick="Emby.Page.showItem('${detail.Id}')">MORE</button>
-      </div>
+	  
+         <button id="${detail.Id}" data-parentid="${datas.Id}" class="banner-item-play" tabindex="-1">PLAY</button>
+		 <button tabindex="-1" onclick="Emby.Page.showItem('${detail.Id}')">MORE</button>
+		 <br> </br>
+	<div style="max-width: 100%; text-align: center;">
+  <img 
+    src="https://hitscounter.dev/api/hit?url=http%3A%2F%2F100.100.100.6%3A8096%2F&label=Visitors&icon=graph-up&color=%23ffc107&message=&style=flat&tz=Asia%2FDhaka" 
+    alt="Visitor Counter" 
+    style="width: 100%; max-width: 250px; height: auto;"
+  >
+</div>
+	  </div>
    </div>
 </div>
 `;
 allbackdropHtml += backdropHtml;
 }
 allbackdropHtml === '' && (allbackdropHtml = `
-<div class="swiper-slide swiper-null">一个影视都没有？！</div>
+<div class="swiper-slide swiper-null">一Not a single film or television production？！</div>
 `);
 let mySwiper = `
 <div class="swiper-slide ${hvclass}" id="${datas.Id}">
